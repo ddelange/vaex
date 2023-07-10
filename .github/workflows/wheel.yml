@@ -27,7 +27,7 @@ jobs:
           MATRIX_INCLUDE=$(
             {
               cibuildwheel --print-build-identifiers --platform linux --arch x86_64,aarch64 | grep cp |  jq -nRc '{"only": inputs, "os": "ubuntu-latest"}' \
-              && cibuildwheel --print-build-identifiers --platform macos --arch x86_64,arm64 | grep cp |  jq -nRc '{"only": inputs, "os": "macos-latest"}' \
+              && cibuildwheel --print-build-identifiers --platform macos --arch x86_64,arm64 | grep cp |  jq -nRc '{"only": inputs, "os": "macOS-11"}' \
               && cibuildwheel --print-build-identifiers --platform windows --arch AMD64 | grep cp |  jq -nRc '{"only": inputs, "os": "windows-latest"}'
             } | jq -sc
           )
