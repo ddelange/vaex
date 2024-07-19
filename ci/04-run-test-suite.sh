@@ -10,7 +10,7 @@ export VAEX_SERVER_OVERRIDE='{"dataframe.vaex.io":"dataframe-dev.vaex.io"}'
 pytest tests\
         packages/vaex-core/vaex/datatype_test.py\
         packages/vaex-core/vaex/file/\
-        vaex.test.dataset::TestDataset\
+        --pyargs vaex.test.dataset::TestDataset\
         --doctest-modules\
             packages/vaex-core/vaex/datatype.py\
             packages/vaex-core/vaex/utils.py\
