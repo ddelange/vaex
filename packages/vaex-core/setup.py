@@ -23,20 +23,16 @@ author_email = "maartenbreddels@gmail.com"
 license = 'MIT'
 version = version.__version__
 url = 'https://www.github.com/maartenbreddels/vaex'
-# TODO: can we do without requests and progressbar2?
 # TODO: after python2 supports frops, future and futures can also be dropped
-# TODO: would be nice to have astropy only as dep in vaex-astro
 setup_requires = ["numpy~=1.16"]
-install_requires_core = ["numpy~=1.16", "aplus", "tabulate>=0.8.3",
-                         "future>=0.15.2", "pyyaml", "progressbar2",
-                         "requests", "six", "cloudpickle", "pandas", "dask!=2022.4.0",
-                         "nest-asyncio>=1.3.3", "pyarrow>=5.0.0", "frozendict!=2.2.0",
+install_requires_core = ["numpy~=1.16", "aplus", "tabulate>=0.8.3", "dask!=2022.4.0",
+                         "future>=0.15.2", "pyyaml", "six", "cloudpickle", "pandas",
+                         "nest_asyncio>=1.3.3", "pyarrow>=5.0.0", "frozendict!=2.2.0",
                          "blake3", "filelock", "pydantic>=1.8.0", "rich",
                         ]
-if sys.version_info[0] == 2:
-    install_requires_core.append("futures>=2.2.0")
-install_requires_viz = ["matplotlib>=1.3.1", ]
-install_requires_astro = ["kapteyn"]
+extras_require_core = {
+    'all': ["gcsfs>=0.6.2", "s3fs", "ipyvolume", "diskcache", "fsspec", "h5py", "httpx", "aplus", "psutil", "graphviz"],
+}
 
 if "MACOSX_DEPLOYMENT_TARGET" not in os.environ:
     os.environ["MACOSX_DEPLOYMENT_TARGET"] = "10.9"
@@ -191,9 +187,7 @@ setup(name=name + '-core',
             "Programming Language :: Python :: 3.10",
             "Programming Language :: Python :: 3.11",
       ],
-      extras_require={
-          'all': ["gcsfs>=0.6.2", "s3fs"]
-      },
+      extras_require=extras_require_core,
       entry_points={
           'console_scripts': ['vaex = vaex.__main__:main'],
           'gui_scripts': ['vaexgui = vaex.__main__:main'],  # sometimes in osx, you need to run with this
