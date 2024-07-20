@@ -24,8 +24,8 @@ license = 'MIT'
 version = version.__version__
 url = 'https://www.github.com/maartenbreddels/vaex'
 # TODO: after python2 supports frops, future and futures can also be dropped
-setup_requires = ["numpy~=1.20"]
-install_requires_core = ["numpy~=1.20", "aplus", "tabulate>=0.8.3", "dask!=2022.4.0",
+setup_requires = ["numpy~=1.17"]
+install_requires_core = ["numpy~=1.17", "aplus", "tabulate>=0.8.3", "dask!=2022.4.0",
                          "future>=0.15.2", "pyyaml", "six", "cloudpickle", "pandas",
                          "nest_asyncio>=1.3.3", "pyarrow>=5.0.0", "frozendict!=2.2.0",
                          "blake3", "filelock", "pydantic>=1.8.0", "rich",
