@@ -7,7 +7,7 @@ elif [ -f ${HOME}/.bash_profile ]; then
     source ${HOME}/.bash_profile
 fi
 export VAEX_SERVER_OVERRIDE='{"dataframe.vaex.io":"dataframe-dev.vaex.io"}'
-python -m pytest --doctest-modules --timeout=1000
+python -m pytest --doctest-modules --timeout=1000\
         tests\
         packages/vaex-core/vaex/datatype_test.py\
         packages/vaex-core/vaex/file/\
